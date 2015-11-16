@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCeaxRAwY3w4Cx04YN5Vt00Gj-JWG35-Os&sensor=false">
+</script>
+
+<script>
+var point = new google.maps.LatLng(-7.720697,109.9181216);
+function initialize()
+{
+var mapProp = {
+  center:point,
+  zoom:12,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker = new google.maps.Marker({
+	position:point,
+	animation:google.maps.Animation.BOUNCE});
+  var lingk = new google.maps.Circle({
+			center:point,
+			radius:2000,//dalam satuan meter
+			strokeColor:"#0000FF",
+			strokeOpacity:5,
+			strokeWeight:2,
+			fillColor:"#0000FF",
+			fillOpacity:0.4
+	});
+  lingk.setMap(map);
+  marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<body>
+<div id="googleMap" style="width:1000px;height:608px;"></div>
+
+</body>
+</html> 
